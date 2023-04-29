@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast App</title>
+  </head>
+  <body>
+  <nav id="navbar" class="navbar shadow">
+    <h1>Weather Forecast App</h1>
+    <button id="toggle-dark-mode">
+      <i class="fa-solid fa-sun"></i>
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </nav>
+  <main>
+    <form name="search__card" id="search__card" class="card shadow">
+      <label for="search__input">Search for city name</label>
+      <input id="search__input" name="search__input" type="text">
+      <button id="search__submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+  </main>
+    <script src="/src/main.ts" type="module"></script>
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/f53f706c58.js"></script>
+  </body>
+</html>
