@@ -1,10 +1,10 @@
 :root {
     --box-shadow: 3px 3px 16px -8px var(--color-shadow);
-    --color-bg-2: #FFFFFF;
-    --color-bg: #ECF2FF;
+    --color-bg-2: hsl(0, 0%, 100%);
+    --color-bg: hsl(221, 100%, 96%);
     --color-border-input: hsla(0, 0%, 0%, 0.7);
-    --color-border: #374998;
-    --color-main: #3E54AC;
+    --color-border: hsl(0, 0%, 0%, 0.3);
+    --color-main: hsl(228, 47%, 46%);
     --color-shadow: hsla(0, 0%, 0%, 0.75);
     --color-text-main: hsla(0,0% ,0% ,0.7);
     --color-text-alt: hsl(0, 0%, 100%);
@@ -12,11 +12,11 @@
 
 body.dark{
     --box-shadow: 3px 3px 16px -8px var(--color-shadow);
-    --color-bg-2: #131b3f;
-    --color-bg: #1c1c1c;
+    --color-bg-2: hsl(229, 54%, 16%);
+    --color-bg: hsl(0, 0%, 11%);
     --color-border-input: hsla(0, 100%, 100%, 0.7);
-    --color-border: #0a0e1e;
-    --color-main: #131b3f;
+    --color-border: hsl(0, 100%, 100%, 0.3);
+    --color-main: hsl(229, 54%, 16%);
     --color-shadow: hsla(0, 0%, 0%, 0.75);
     --color-text-main: hsla(0,100% ,100% ,0.7);
     --color-text-alt: hsl(0, 0%, 100%);
@@ -65,6 +65,11 @@ nav {
     align-items: center;
 }
 
+nav h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
 nav button {
     border: 0;
     background: 0;
@@ -108,11 +113,18 @@ nav button:not(.active) :last-child{
     align-self: center;
     justify-self: start;
     right: 2rem;
-    height: 1rem;
     font-size: 1rem;
-    border: 0;
     background: 0;
     grid-row: 2;
     grid-column: 2;
+    height: 1.5rem;
+    width: 1.5rem;
+    padding-inline: 0.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border: solid 1px transparent;
+}
 
+button#search__submit:hover {
+    border-color: var(--color-border);
 }
