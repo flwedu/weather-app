@@ -1,12 +1,25 @@
 :root {
-    --color-bg: #ECF2FF;
-    --color-main: #3E54AC;
-    --border-color: #374998;
-    --color-shadow: hsla(0, 0%, 0%, 0.75);
     --box-shadow: 3px 3px 16px -8px var(--color-shadow);
-    --color-text-l: #FFFFFF;
-    --color-text-d: hsla(0,0% ,0% ,0.7);
     --color-bg-2: #FFFFFF;
+    --color-bg: #ECF2FF;
+    --color-border-input: hsla(0, 0%, 0%, 0.7);
+    --color-border: #374998;
+    --color-main: #3E54AC;
+    --color-shadow: hsla(0, 0%, 0%, 0.75);
+    --color-text-main: hsla(0,0% ,0% ,0.7);
+    --color-text-alt: hsl(0, 0%, 100%);
+}
+
+body.dark{
+    --box-shadow: 3px 3px 16px -8px var(--color-shadow);
+    --color-bg-2: #131b3f;
+    --color-bg: #1c1c1c;
+    --color-border-input: hsla(0, 100%, 100%, 0.7);
+    --color-border: #0a0e1e;
+    --color-main: #131b3f;
+    --color-shadow: hsla(0, 0%, 0%, 0.75);
+    --color-text-main: hsla(0,100% ,100% ,0.7);
+    --color-text-alt: hsl(0, 0%, 100%);
 }
 
 * {
@@ -21,7 +34,7 @@ body {
     background-color: var(--color-bg);
     width: 100vw;
     height: 100vh;
-    color: var(--color-text-l);
+    color: var(--color-text-alt);
 }
 
 main{
@@ -40,7 +53,7 @@ main{
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: var(--color-main);
-    border: solid 1px var(--border-color);
+    border: solid 1px var(--color-border);
 }
 
 nav {
@@ -55,7 +68,7 @@ nav {
 nav button {
     border: 0;
     background: 0;
-    color: var(--color-text-l);
+    color: var(--color-text-alt);
 }
 
 nav button.active :first-child{
@@ -78,19 +91,19 @@ nav button:not(.active) :last-child{
 }
 
 #search__input{
-    width: 100%;
-    border-radius: 1rem;
-    height: 2rem;
-    border: solid 1px var(--border-color);
-    padding-inline: 1rem;
-    padding-block: 0.5rem;
     background-color: var(--color-bg-2);
-    grid-row: 2;
+    border-radius: 1rem;
+    border: solid 1px var(--color-border-input);
     font-size: 1.5rem;
+    grid-row: 2;
+    height: 2rem;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    width: 100%;
 }
 
 #search__submit{
-    color: var(--color-text-d);
+    color: var(--color-text-main);
     position: relative;
     align-self: center;
     justify-self: start;
