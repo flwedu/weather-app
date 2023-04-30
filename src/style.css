@@ -43,6 +43,10 @@ main{
     display: grid;
 }
 
+button {
+    cursor: pointer;
+}
+
 .shadow {
     -webkit-box-shadow: var(--box-shadow);
     -moz-box-shadow: var(--box-shadow);
