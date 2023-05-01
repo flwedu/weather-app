@@ -163,6 +163,15 @@ button#button-gps {
 	grid-row: 2;
 }
 
+#results {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 25rem);
+	grid-auto-rows: auto;
+	max-width: 1200px;
+	margin: 0 auto;
+	gap: 1rem;
+}
+
 .city-card {
 	font-family: "Poppins", sans-serif;
 	width: 100%;
