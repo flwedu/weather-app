@@ -61,6 +61,9 @@ export class CityCard {
     <div class="city-card__body" >
         <span>${this.current.condition.text}</span>
     </div>
+    <div class="city-card__right">
+        <img src="${this.current.condition.icon}" alt="${this.current.condition.text}">
+    </div>
 `;
 
         const div = document.createElement("div");
