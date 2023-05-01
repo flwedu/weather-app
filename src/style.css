@@ -1,191 +1,191 @@
 :root {
-    --box-shadow: 3px 3px 16px -8px var(--color-shadow);
-    --color-bg-2: hsl(0, 0%, 100%);
-    --color-bg: hsl(221, 100%, 96%);
-    --color-border-input: hsla(0, 0%, 0%, 0.7);
-    --color-border: hsl(0, 0%, 0%, 0.3);
-    --color-main: hsl(228, 47%, 46%);
-    --color-shadow: hsla(0, 0%, 0%, 0.75);
-    --color-text-main: hsla(0,0% ,0% ,0.7);
-    --color-text-alt: hsl(0, 0%, 100%);
-    --border-radius: 0.5rem;
+	--box-shadow: 3px 3px 16px -8px var(--color-shadow);
+	--color-bg-2: hsl(0, 0%, 100%);
+	--color-bg: hsl(221, 100%, 96%);
+	--color-border-input: hsla(0, 0%, 0%, 0.7);
+	--color-border: hsl(0, 0%, 0%, 0.3);
+	--color-main: hsl(228, 47%, 46%);
+	--color-shadow: hsla(0, 0%, 0%, 0.75);
+	--color-text-main: hsla(0, 0%, 0%, 0.7);
+	--color-text-alt: hsl(0, 0%, 100%);
+	--border-radius: 0.5rem;
 }
 
-body.dark{
-    --box-shadow: 3px 3px 16px -8px var(--color-shadow);
-    --color-bg-2: hsl(229, 54%, 16%);
-    --color-bg: hsl(0, 0%, 11%);
-    --color-border-input: hsla(0, 100%, 100%, 0.7);
-    --color-border: hsl(0, 100%, 100%, 0.3);
-    --color-main: hsl(229, 54%, 16%);
-    --color-shadow: hsla(0, 0%, 0%, 0.75);
-    --color-text-main: hsla(0,100% ,100% ,0.7);
-    --color-text-alt: hsl(0, 0%, 100%);
+body.dark {
+	--box-shadow: 3px 3px 16px -8px var(--color-shadow);
+	--color-bg-2: hsl(229, 54%, 16%);
+	--color-bg: hsl(0, 0%, 11%);
+	--color-border-input: hsla(0, 100%, 100%, 0.7);
+	--color-border: hsl(0, 100%, 100%, 0.3);
+	--color-main: hsl(229, 54%, 16%);
+	--color-shadow: hsla(0, 0%, 0%, 0.75);
+	--color-text-main: hsla(0, 100%, 100%, 0.7);
+	--color-text-alt: hsl(0, 0%, 100%);
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
+	margin: 0;
 }
 
 body {
-    background-color: var(--color-bg);
-    width: 100vw;
-    height: 100vh;
-    color: var(--color-text-alt);
+	background-color: var(--color-bg);
+	width: 100vw;
+	height: 100vh;
+	color: var(--color-text-alt);
 }
 
-main{
-    padding: 1rem;
-    align-content: start;
-    display: grid;
-    gap: 1rem;
+main {
+	padding: 1rem;
+	align-content: start;
+	display: grid;
+	gap: 1rem;
 }
 
 button {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .shadow {
-    -webkit-box-shadow: var(--box-shadow);
-    -moz-box-shadow: var(--box-shadow);
-    box-shadow: var(--box-shadow);
+	-webkit-box-shadow: var(--box-shadow);
+	-moz-box-shadow: var(--box-shadow);
+	box-shadow: var(--box-shadow);
 }
 
 .card {
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    background-color: var(--color-main);
-    border: solid 1px var(--color-border);
+	padding: 1rem;
+	border-radius: var(--border-radius);
+	background-color: var(--color-main);
+	border: solid 1px var(--color-border);
 }
 
 nav {
-    padding-inline: 1rem;
-    background-color: var(--color-main);
-    height: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	padding-inline: 1rem;
+	background-color: var(--color-main);
+	height: 3rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 nav h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
 }
 
 nav button {
-    border: 0;
-    background: 0;
-    color: var(--color-text-alt);
+	border: 0;
+	background: 0;
+	color: var(--color-text-alt);
 }
 
-nav button.active :first-child{
-    display: none;
+nav button.active :first-child {
+	display: none;
 }
 
-nav button:not(.active) :last-child{
-    display: none;
+nav button:not(.active) :last-child {
+	display: none;
 }
 
 #search-card {
-    display: grid;
-    grid-auto-rows: auto;
-    justify-self: center;
-    justify-items: center;
-    width: 30rem;
+	display: grid;
+	grid-auto-rows: auto;
+	justify-self: center;
+	justify-items: center;
+	width: 30rem;
 }
 
-#button-add-location{
-    border: 0;
-    color: var(--color-text-alt);
-    background: 0;
-    width: 100%;
-    height: 100%;
-    padding-inline: 1rem;
+#button-add-location {
+	border: 0;
+	color: var(--color-text-alt);
+	background: 0;
+	width: 100%;
+	height: 100%;
+	padding-inline: 1rem;
 }
 
-#search-card #search-form{
-    display: none;
+#search-card #search-form {
+	display: none;
 }
 
-#search-card.active #search-form{
-    align-content: center;
-    display: grid;
-    font-family: 'Poppins', sans-serif;
-    grid-template: 1fr 2fr / 1fr 1px 1rem;
-    height: 5rem;
-    justify-self: center;
-    padding: 1rem;
-    width: 100%;
+#search-card.active #search-form {
+	align-content: center;
+	display: grid;
+	font-family: 'Poppins', sans-serif;
+	grid-template: 1fr 2fr / 1fr 1px 1rem;
+	height: 5rem;
+	justify-self: center;
+	padding: 1rem;
+	width: 100%;
 }
 
 #search-form button {
-    align-self: center;
-    background: 0;
-    border-radius: 50%;
-    border: solid 1px transparent;
-    cursor: pointer;
-    font-size: 1rem;
-    height: 1.5rem;
-    justify-self: start;
-    padding-inline: 0.2rem;
-    width: 1.5rem;
+	align-self: center;
+	background: 0;
+	border-radius: 50%;
+	border: solid 1px transparent;
+	cursor: pointer;
+	font-size: 1rem;
+	height: 1.5rem;
+	justify-self: start;
+	padding-inline: 0.2rem;
+	width: 1.5rem;
 }
 
-#search-input{
-    background-color: var(--color-bg-2);
-    border-radius: 1rem;
-    border: solid 1px var(--color-border-input);
-    font-size: 1.5rem;
-    grid-row: 2;
-    height: 2rem;
-    padding-block: 0.5rem;
-    padding-inline: 1rem;
+#search-input {
+	background-color: var(--color-bg-2);
+	border-radius: 1rem;
+	border: solid 1px var(--color-border-input);
+	font-size: 1.5rem;
+	grid-row: 2;
+	height: 2rem;
+	padding-block: 0.5rem;
+	padding-inline: 1rem;
 }
 
-#button-submit{
-    color: var(--color-text-main);
-    grid-column: 2;
-    grid-row: 2;
-    position: relative;
-    right: 2rem;
+#button-submit {
+	color: var(--color-text-main);
+	grid-column: 2;
+	grid-row: 2;
+	position: relative;
+	right: 2rem;
 }
 
 button#button-submit:hover {
-    border-color: var(--color-border);
+	border-color: var(--color-border);
 }
 
-button#button-gps{
-    color: var(--color-text-alt);
-    grid-row: 2;
+button#button-gps {
+	color: var(--color-text-alt);
+	grid-row: 2;
 }
 
 .city-card {
-    font-family: "Poppins", sans-serif;
-    max-width: 25rem;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto;
+	font-family: "Poppins", sans-serif;
+	width: 100%;
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: auto;
 }
 
-.city-card > div{
-    width: 100%;
-    height: 100%;
+.city-card > div {
+	width: 100%;
+	height: 100%;
 }
 
 .city-card .city-card__header {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-    justify-items: start;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 2fr;
+	align-items: center;
+	justify-items: start;
 }
 
 .city-card__header .header-temp {
-    font-size: 3rem;
+	font-size: 3rem;
 }
 
 .city-card__header .header-text {
@@ -193,8 +193,8 @@ button#button-gps{
 }
 
 .city-card .city-card__body {
-    padding-top: 1rem;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    border-top: solid 1px var(--color-text-alt);
+	padding-top: 1rem;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	border-top: solid 1px var(--color-text-alt);
 }
