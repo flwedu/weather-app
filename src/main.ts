@@ -1,11 +1,13 @@
 import './style.css'
 import {CityCard} from "./model/city-card.ts";
 import {DataRequest} from "./model/data-request.ts";
+import {UiController} from "./model/ui-controller.ts";
 
 const searchForm = document.forms.namedItem("search-form")!;
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const buttonGps = document.getElementById("button-gps")!;
-const resultsDiv = document.getElementById("results")!;
+const uiController = new UiController();
+
 document.getElementById("toggle-dark-mode")!.addEventListener("click", (e) => {
     const button = e.target as HTMLButtonElement;
     button.classList.toggle("active");
@@ -29,6 +31,7 @@ searchForm.addEventListener("submit", (event) => {
     const cityName = searchInput.value;
     new DataRequest({cityName}).get().then((res) => {
         const cityCard = new CityCard(res);
-        resultsDiv.prepend(cityCard.render());
+        uiController.addCard(cityCard);
+        uiController.updateRendering();
     });
 })

@@ -44,8 +44,8 @@ export interface Condition {
 
 
 export class CityCard {
-    private location: ForeCast["location"];
-    private current: ForeCast["current"];
+    public location: ForeCast["location"];
+    public current: ForeCast["current"];
 
     constructor(props: ForeCast) {
         this.location = props.location;
