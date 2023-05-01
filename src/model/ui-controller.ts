@@ -21,4 +21,8 @@ export class UiController {
             this.resultsDiv.append(card.render());
         })
     }
+
+    public getCityNames(){
+        return Array.from(this.cards.keys()).join(";");
+    }
 }

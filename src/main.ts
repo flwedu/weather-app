@@ -28,10 +28,30 @@ buttonGps.addEventListener("click", () => {
 
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const cityName = searchInput.value;
-    new DataRequest({cityName}).get().then((res) => {
-        const cityCard = new CityCard(res);
-        uiController.addCard(cityCard);
-        uiController.updateRendering();
-    });
+    makeRequest([ searchInput.value ]).then(addCard);
 })
+
+const cities = localStorage.getItem("weather-app-cities");
+if(cities){
+    const queries = cities.split(";");
+    makeRequest(queries).then(addCard);
+}
+
+function makeRequest(query: string[]){
+    const requestPromises = query.map(async (query) => {
+        const data = await new DataRequest({cityName: query}).get();
+        return new CityCard(data);
+    })
+    return Promise.allSettled(requestPromises);
+}
+
+function addCard(results: PromiseSettledResult<CityCard>[]){
+    results.forEach((result) => {
+        if(result.status == "fulfilled"){
+            uiController.addCard(result.value);
+        }
+    })
+    uiController.updateRendering();
+    const names = uiController.getCityNames();
+    localStorage.setItem("weather-app-cities", names);
+}
