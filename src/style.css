@@ -8,6 +8,7 @@
     --color-shadow: hsla(0, 0%, 0%, 0.75);
     --color-text-main: hsla(0,0% ,0% ,0.7);
     --color-text-alt: hsl(0, 0%, 100%);
+    --border-radius: 0.5rem;
 }
 
 body.dark{
@@ -41,6 +42,7 @@ main{
     padding: 1rem;
     align-content: start;
     display: grid;
+    gap: 1rem;
 }
 
 button {
@@ -55,7 +57,7 @@ button {
 
 .card {
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius);
     background-color: var(--color-main);
     border: solid 1px var(--color-border);
 }
@@ -88,18 +90,52 @@ nav button:not(.active) :last-child{
     display: none;
 }
 
-#search__card{
-    padding: 3rem;
-    max-width: 20rem;
-    justify-self: center;
-    height: 5rem;
+#search-card {
     display: grid;
-    grid-template: 1fr 2fr / 1fr 1px;
-    align-content: center;
-    font-family: 'Poppins', sans-serif;
+    grid-auto-rows: auto;
+    justify-self: center;
+    justify-items: center;
+    width: 30rem;
 }
 
-#search__input{
+#button-add-location{
+    border: 0;
+    color: var(--color-text-alt);
+    background: 0;
+    width: 100%;
+    height: 100%;
+    padding-inline: 1rem;
+}
+
+#search-card #search-form{
+    display: none;
+}
+
+#search-card.active #search-form{
+    align-content: center;
+    display: grid;
+    font-family: 'Poppins', sans-serif;
+    grid-template: 1fr 2fr / 1fr 1px 1rem;
+    height: 5rem;
+    justify-self: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+#search-form button {
+    align-self: center;
+    background: 0;
+    border-radius: 50%;
+    border: solid 1px transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    height: 1.5rem;
+    justify-self: start;
+    padding-inline: 0.2rem;
+    width: 1.5rem;
+}
+
+#search-input{
     background-color: var(--color-bg-2);
     border-radius: 1rem;
     border: solid 1px var(--color-border-input);
@@ -108,27 +144,21 @@ nav button:not(.active) :last-child{
     height: 2rem;
     padding-block: 0.5rem;
     padding-inline: 1rem;
-    width: 100%;
 }
 
-#search__submit{
+#button-submit{
     color: var(--color-text-main);
-    position: relative;
-    align-self: center;
-    justify-self: start;
-    right: 2rem;
-    font-size: 1rem;
-    background: 0;
-    grid-row: 2;
     grid-column: 2;
-    height: 1.5rem;
-    width: 1.5rem;
-    padding-inline: 0.2rem;
-    border-radius: 50%;
-    cursor: pointer;
-    border: solid 1px transparent;
+    grid-row: 2;
+    position: relative;
+    right: 2rem;
 }
 
-button#search__submit:hover {
+button#button-submit:hover {
     border-color: var(--color-border);
+}
+
+button#button-gps{
+    color: var(--color-text-alt);
+    grid-row: 2;
 }
