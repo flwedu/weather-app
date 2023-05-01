@@ -29,6 +29,7 @@ buttonGps.addEventListener("click", () => {
 searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     makeRequest([ searchInput.value ]).then(addCard);
+    searchInput.value = "";
 })
 
 const cities = localStorage.getItem("weather-app-cities");
@@ -39,7 +40,7 @@ if(cities){
 
 function makeRequest(query: string[]){
     const requestPromises = query.map(async (query) => {
-        const data = await new DataRequest({cityName: query}).get();
+        const data = await new DataRequest().get(query);
         return new CityCard(data);
     })
     return Promise.allSettled(requestPromises);
