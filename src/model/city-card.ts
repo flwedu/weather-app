@@ -52,18 +52,38 @@ export class CityCard {
         this.current = props.current;
     }
 
+		private getTemperatureIconClass(){
+			const temperature = this.current.temp_c;
+			if (temperature < -10){
+				return "fa-temperature-empty";
+			} else if (temperature < 5) {
+				return "fa-temperature-low";
+			} else if (temperature < 25) {
+				return "fa-temperature-half";
+			} else if (temperature < 38) {
+				return "fa-temperature-three-quarters";
+			} else {
+				return "fa-temperature-full";
+			}
+		}
+
+		private getDate(){
+			const lastUpdatedEpoch = this.current.last_updated_epoch * 1000;
+			return new Date(lastUpdatedEpoch).toLocaleString();
+		}
+
     render(){
         const html = `
     <div class="city-card__header">
-        <h2>${this.location.name}</h2>
-        <span>${this.location.country}</span>
+        <img class="header-icon" src="${this.current.condition.icon}" alt="${this.current.condition.text}">
+        <span class="header-temp"><i class="fa-solid ${this.getTemperatureIconClass()}"></i> ${this.current.temp_c} ºC</span>
+        <span class="header-text">${this.current.condition.text}</span>
     </div>
     <div class="city-card__body" >
-        <span>${this.current.condition.text}</span>
+        <span class="body-name"><i class="fa-solid fa-location-dot"></i> ${this.location.name}, ${this.location.country}</span>
+        <span class="body-time"><i class="fa-solid fa-calendar-days"></i> ${this.getDate()}</span>
     </div>
-    <div class="city-card__right">
-        <img src="${this.current.condition.icon}" alt="${this.current.condition.text}">
-    </div>
+ 
 `;
 
         const div = document.createElement("div");
