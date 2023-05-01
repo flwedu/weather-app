@@ -10,8 +10,8 @@ export class UiController {
     }
 
     public addCard(card: CityCard){
-        const name = card.location.name;
-        this.cards.set(name, card);
+        const key = `${card.location.lat},${card.location.lon}`;
+        this.cards.set(key, card);
     }
 
     public updateRendering(){
@@ -22,7 +22,7 @@ export class UiController {
         })
     }
 
-    public getCityNames(){
+    public getLocationKeyValues(){
         return Array.from(this.cards.keys()).join(";");
     }
 }

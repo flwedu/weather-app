@@ -53,6 +53,6 @@ function addCard(results: PromiseSettledResult<CityCard>[]){
         }
     })
     uiController.updateRendering();
-    const names = uiController.getCityNames();
-    localStorage.setItem("weather-app-cities", names);
+    const locationKeyNames = uiController.getLocationKeyValues();
+    localStorage.setItem("weather-app-cities", locationKeyNames);
 }
