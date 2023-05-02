@@ -195,19 +195,36 @@ button#button-gps {
 	display: grid;
 	grid-template-rows: auto;
 	grid-template-columns: auto;
+	cursor: pointer;
+	transition: transform 500ms, filter 500ms;
+}
+
+.city-card:hover{
+	transform: scale(1.05);
+}
+
+#results:hover .city-card:not(:hover){
+	filter: opacity(0.5);
 }
 
 .city-card .city-card__header {
 	display: grid;
 	grid-template-rows: 1fr 1fr;
-	grid-template-columns: 1fr 2fr;
-	align-items: center;
+	grid-template-columns: 1fr 3fr;
+	align-items: end;
 	justify-items: start;
 }
 
 .city-card__header .header-temp {
-	font-size: 3rem;
+	font-size: 2.5rem;
 	font-family: 'Roboto', sans-serif;
+	justify-self: end;
+}
+
+.city-card__header .header-button {
+	font-size: 2rem;
+	justify-self: end;
+	align-self: start;
 }
 
 .city-card__header .header-text {
