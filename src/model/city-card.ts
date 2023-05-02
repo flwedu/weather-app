@@ -56,11 +56,11 @@ export class CityCard {
 			const temperature = this.current.temp_c;
 			if (temperature < -10){
 				return "fa-temperature-empty";
-			} else if (temperature < 5) {
+			} else if (temperature < 10) {
 				return "fa-temperature-low";
 			} else if (temperature < 25) {
 				return "fa-temperature-half";
-			} else if (temperature < 38) {
+			} else if (temperature < 36) {
 				return "fa-temperature-three-quarters";
 			} else {
 				return "fa-temperature-full";
