@@ -46,11 +46,13 @@ export interface Condition {
 export class CityCard {
     public location: ForeCast["location"];
     public current: ForeCast["current"];
+		public key: string;
 
     constructor(props: ForeCast) {
         this.location = props.location;
         this.current = props.current;
-    }
+				this.key = `${props.location.lat},${props.location.lon}`;
+		}
 
 		private getTemperatureIconClass(){
 			const temperature = this.current.temp_c;
@@ -87,6 +89,7 @@ export class CityCard {
 
         const div = document.createElement("div");
         div.classList.add("card", "city-card");
+				div.setAttribute("data-key", this.key);
         div.innerHTML = html;
         return div;
     }

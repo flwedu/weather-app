@@ -10,9 +10,13 @@ export class UiController {
     }
 
     public addCard(card: CityCard){
-        const key = `${card.location.lat},${card.location.lon}`;
+				const {key} = card;
         this.cards.set(key, card);
     }
+
+		public removeCard(key: string){
+			this.cards.delete(key);
+		}
 
     public updateRendering(){
         const cardsValues = Array.from(this.cards.values());
