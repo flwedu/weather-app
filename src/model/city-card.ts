@@ -74,16 +74,15 @@ export class CityCard {
 
     render(){
         const html = `
-    <div class="city-card__header">
-        <img class="header-icon" src="${this.current.condition.icon}" alt="${this.current.condition.text}">
-        <span class="header-temp"><i class="fa-solid ${this.getTemperatureIconClass()}"></i> ${this.current.temp_c} ºC</span>
-        <span class="header-text">${this.current.condition.text}</span>
-    </div>
-    <div class="city-card__body" >
-        <span class="body-name"><i class="fa-solid fa-location-dot"></i> ${this.location.name}, ${this.location.country}</span>
-        <span class="body-time"><i class="fa-solid fa-calendar-days"></i> ${this.getDate()}</span>
-    </div>
- 
+			<div class="city-card__header">
+					<img class="header-icon" src="${this.current.condition.icon}" alt="${this.current.condition.text}">
+					<span class="header-temp"><i class="fa-solid ${this.getTemperatureIconClass()}"></i> ${this.current.temp_c} ºC</span>
+					<span class="header-text">${this.current.condition.text}</span>
+			</div>
+			<div class="city-card__body" >
+					<span class="body-name"><i class="fa-solid fa-location-dot"></i> ${this.location.name}, ${this.location.country}</span>
+					<span class="body-time"><i class="fa-solid fa-calendar-days"></i> ${this.getDate()}</span>
+			</div>
 `;
 
         const div = document.createElement("div");
