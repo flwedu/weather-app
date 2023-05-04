@@ -19,6 +19,7 @@ export class CityCardDetails{
 
 	public render(){
 		return `
+		<h2>${this.data.location.name}, ${this.data.location.country}</h2>
 		<table>
 			<tbody>
 				${this.data.forecast.forecastday.map(this.createDayCard).join("")}

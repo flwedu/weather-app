@@ -53,13 +53,6 @@ body {
 	height: 100vh;
 }
 
-main {
-	padding: 1rem;
-	align-content: start;
-	display: grid;
-	gap: 1rem;
-}
-
 button {
 	cursor: pointer;
 }
@@ -104,8 +97,24 @@ nav button.active :first-child {
 nav button:not(.active) :last-child {
 	display: none;
 }
+/* App */
+#app {
+	padding: 1rem;
+	align-content: start;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto;
+}
 
+#app.details-open{
+	grid-template-columns: 1fr 1fr;
+}
+
+/* Search */
 #search-card {
+	grid-row: 1;
+	grid-column: 1 / 3;
 	display: grid;
 	grid-auto-rows: auto;
 	justify-self: center;
@@ -179,6 +188,7 @@ button#button-gps {
 	grid-row: 2;
 }
 
+/* Results */
 #results {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 25rem);
@@ -237,4 +247,19 @@ button#button-gps {
 	grid-template-rows: 1fr 1fr;
 	border-top: solid 1px var(--color-text-muted);
 	font-weight: 300;
+}
+
+/* Details */
+#details {
+	padding-inline: 2rem;
+}
+
+#details.closed {
+	display: none;
+}
+
+#details table {
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
