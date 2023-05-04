@@ -1,3 +1,5 @@
+import {CurrentForecast, NextDaysForecast} from "./types/IForecast.ts";
+
 export class DataRequest {
     private BASE_URL = import.meta.env.VITE_WEATHER_BASE_URL;
     private API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
