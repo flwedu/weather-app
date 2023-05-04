@@ -6,6 +6,7 @@
 	--color-bg: hsl(221, 100%, 96%);
 	--color-border-input: hsla(0, 0%, 0%, 0.7);
 	--color-border: hsla(216, 12%, 84%, 0.3);
+	--color-border-active: hsl(0, 0%, 50%, 0.5);
 	--color-main: hsl(228, 47%, 46%);
 	--color-shadow: hsla(0, 0%, 0%, 0.75);
 	--color-text-muted: hsl(217, 14%, 22%);
@@ -23,7 +24,8 @@ body.dark {
 	--color-bg-2: hsl(229, 54%, 16%);
 	--color-bg: hsl(0, 0%, 11%);
 	--color-border-input: hsla(0, 100%, 100%, 0.7);
-	--color-border: hsla(0, 0%, 100%, 0.12);;
+	--color-border: hsla(0, 0%, 100%, 0.12);
+	--color-border-active: hsl(0, 0%, 100%, 1);
 	--color-main: hsl(229, 54%, 16%);
 	--color-shadow: hsla(0, 0%, 0%, 0.75);
 	--color-text-muted: hsl(0, 0%, 100%);
@@ -198,6 +200,7 @@ button#button-gps {
 	gap: 1rem;
 }
 
+/* Cards */
 .city-card {
 	position: relative;
 	font-family: "Poppins", sans-serif;
@@ -209,12 +212,20 @@ button#button-gps {
 	transition: transform 500ms, filter 500ms;
 }
 
+.city-card.active{
+	outline: solid 3px var(--color-border-active);
+}
+
 .city-card:hover{
 	transform: scale(1.05);
 }
 
 #results:hover .city-card:not(:hover){
 	filter: opacity(0.5);
+}
+
+#results:hover .city-card.active:not(:hover){
+	filter: opacity(0.9);
 }
 
 .city-card .city-card__header {

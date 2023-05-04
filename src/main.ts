@@ -62,8 +62,11 @@ document.getElementById("results")!.addEventListener("click", async (ev: any) =>
 	const {target} = ev;
 	const card = target.classList.contains("city-card") as HTMLElement ? target : (target as HTMLElement).closest(".city-card");
 	if(!card) return;
+	document.querySelectorAll(".city-card").forEach((c) => c.classList.remove("active"));
+	card.classList.add("active");
 	const query = card.getAttribute("data-key");
 	const detailsDiv = document.getElementById("details");
+
 	const data = await new DataRequest().getForecast(query);
 	detailsDiv.innerHTML = new CityCardDetails(data).render();
 	document.getElementById("app").classList.add("details-open")
