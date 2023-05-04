@@ -2,6 +2,7 @@ import './style.css'
 import {CityCard} from "./model/city-card.ts";
 import {DataRequest} from "./model/data-request.ts";
 import {UiController} from "./model/ui-controller.ts";
+import {CityCardDetails} from "./model/city-card-details.ts";
 
 const searchForm = document.forms.namedItem("search-form")!;
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
@@ -56,3 +57,23 @@ function addCard(results: PromiseSettledResult<CityCard>[]){
     const locationKeyNames = uiController.getLocationKeyValues();
     localStorage.setItem("weather-app-cities", locationKeyNames);
 }
+
+document.getElementById("results")!.addEventListener("click", async (ev: any) => {
+	const {target} = ev;
+	const card = target.classList.contains("city-card") as HTMLElement ? target : (target as HTMLElement).closest(".city-card");
+	if(!card) return;
+	const query = card.getAttribute("data-key");
+	const detailsDiv = document.getElementById("details");
+	const data = await new DataRequest().getForecast(query);
+	detailsDiv.innerHTML = new CityCardDetails(data).render();
+	document.getElementById("app").classList.add("details-open")
+	detailsDiv.classList.remove("closed");
+})
+document.getElementById("results")!.addEventListener("dblclick", (e) => {
+	const { target } = e;
+	if((target as HTMLDivElement).classList.contains("city-card")){
+		const key = (target as HTMLDivElement).getAttribute("data-key")!;
+		uiController.removeCard(key);
+		uiController.updateRendering();
+	}
+})
