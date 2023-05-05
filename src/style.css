@@ -273,4 +273,22 @@ button#button-gps {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	border-collapse: collapse;
+}
+
+#details .card-day:nth-child(even){
+	background: hsla(0, 0%, 100%, 0.1);
+}
+
+#details .card-day .maxtemp {
+	font-weight: 600;
+	font-size: 1.3rem
+}
+
+#details .card-day button {
+	border-radius: 50%;
+	height: 2rem;
+	width: 2rem;
+	border: 0;
+	background: hsla(0, 0%, 100%, 0.3);;
 }
