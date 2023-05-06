@@ -1,16 +1,16 @@
 import {Day, ForecastDay, NextDaysForecast} from "./types/IForecast.ts";
-import {CityCard} from "./city-card.ts";
+import {SmallCard} from "./small-card.ts";
 
 export class CardDetailsNextDays {
 
-	private cityCard: CityCard;
+	private smallCard: SmallCard;
 
 	constructor(private data: NextDaysForecast) {
-		this.cityCard = new CityCard(data);
+		this.smallCard = new SmallCard(data);
 	}
 
 	private getTemperature(day: Day){
-		const icon = this.cityCard.getTemperatureIcon(day.maxtemp_c);
+		const icon = this.smallCard.getTemperatureIcon(day.maxtemp_c);
 		return `<span class="maxtemp">${icon} ${day.maxtemp_c}ºC</span> / <span class="mintemp">${day.mintemp_c}ºC</span>`;
 	}
 

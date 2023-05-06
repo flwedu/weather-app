@@ -1,5 +1,5 @@
 import './style.css'
-import {CityCard} from "./model/city-card.ts";
+import {SmallCard} from "./model/small-card.ts";
 import {DataRequest} from "./model/data-request.ts";
 import {UiController} from "./model/ui-controller.ts";
 import {CardDetailsNextDays} from "./model/card-details-next-days.ts";
@@ -42,12 +42,12 @@ if(cities){
 function makeRequest(query: string[]){
     const requestPromises = query.map(async (query) => {
         const data = await new DataRequest().get(query);
-        return new CityCard(data);
+        return new SmallCard(data);
     })
     return Promise.allSettled(requestPromises);
 }
 
-function addCard(results: PromiseSettledResult<CityCard>[]){
+function addCard(results: PromiseSettledResult<SmallCard>[]){
     results.forEach((result) => {
         if(result.status == "fulfilled"){
             uiController.addCard(result.value);
@@ -60,11 +60,11 @@ function addCard(results: PromiseSettledResult<CityCard>[]){
 
 document.getElementById("results")!.addEventListener("click", async (ev: any) => {
 	const {target} = ev;
-	const card = target.classList.contains("city-card") as HTMLElement ? target : (target as HTMLElement).closest(".city-card");
-	if(!card) return;
-	document.querySelectorAll(".city-card").forEach((c) => c.classList.remove("active"));
-	card.classList.add("active");
-	const query = card.getAttribute("data-key");
+	const smallCard = target.classList.contains("small-card") as HTMLElement ? target : (target as HTMLElement).closest(".small-card");
+	if(!smallCard) return;
+	document.querySelectorAll(".small-card").forEach((c) => c.classList.remove("active"));
+	smallCard.classList.add("active");
+	const query = smallCard.getAttribute("data-key");
 	const cardDetailsNextDaysDiv = document.getElementById("details-next-days");
 
 	const data = await new DataRequest().getForecast(query);
@@ -74,7 +74,7 @@ document.getElementById("results")!.addEventListener("click", async (ev: any) =>
 })
 document.getElementById("results")!.addEventListener("dblclick", (e) => {
 	const { target } = e;
-	if((target as HTMLDivElement).classList.contains("city-card")){
+	if((target as HTMLDivElement).classList.contains("small-card")){
 		const key = (target as HTMLDivElement).getAttribute("data-key")!;
 		uiController.removeCard(key);
 		uiController.updateRendering();

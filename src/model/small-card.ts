@@ -1,6 +1,6 @@
 import {CurrentForecast} from "./types/IForecast.ts";
 
-export class CityCard {
+export class SmallCard {
     public location: CurrentForecast["location"];
     public current: CurrentForecast["current"];
 		public key: string;
@@ -32,19 +32,19 @@ export class CityCard {
 
     render(){
         const html = `
-			<div class="city-card__header">
+			<div class="small-card-header">
 					<img class="header-icon" src="${this.current.condition.icon}" alt="${this.current.condition.text}">
 					<span class="header-temp">${this.getTemperatureIcon(this.current.temp_c)} ${this.current.temp_c} ºC</span>
 					<span class="header-text">${this.current.condition.text}</span>
 			</div>
-			<div class="city-card__body" >
+			<div class="small-card-body" >
 					<span class="body-name"><i class="fa-solid fa-location-dot"></i> ${this.location.name}, ${this.location.country}</span>
 					<span class="body-time"><i class="fa-solid fa-calendar-days"></i> ${this.getDate()}</span>
 			</div>
 			`;
 
         const div = document.createElement("div");
-        div.classList.add("card", "city-card");
+        div.classList.add("card", "small-card");
 				div.setAttribute("data-key", this.key);
         div.innerHTML = html;
         return div;

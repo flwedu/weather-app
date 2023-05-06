@@ -1,7 +1,7 @@
-import {CityCard} from "./city-card.ts";
+import {SmallCard} from "./small-card.ts";
 
 export class UiController {
-    private cards: Map<string, CityCard>;
+    private cards: Map<string, SmallCard>;
     private resultsDiv: HTMLDivElement;
     
     constructor() {
@@ -9,7 +9,7 @@ export class UiController {
         this.resultsDiv = document.getElementById("results") as HTMLDivElement;
     }
 
-    public addCard(card: CityCard){
+    public addCard(card: SmallCard){
 				const {key} = card;
         this.cards.set(key, card);
     }
