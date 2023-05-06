@@ -2,11 +2,11 @@ import {SmallCard} from "./small-card.ts";
 
 export class UiController {
     private cards: Map<string, SmallCard>;
-    private resultsDiv: HTMLDivElement;
+    private cardsListDiv: HTMLDivElement;
     
     constructor() {
         this.cards = new Map();
-        this.resultsDiv = document.getElementById("results") as HTMLDivElement;
+        this.cardsListDiv = document.getElementById("small-cards-list") as HTMLDivElement;
     }
 
     public addCard(card: SmallCard){
@@ -20,9 +20,9 @@ export class UiController {
 
     public updateRendering(){
         const cardsValues = Array.from(this.cards.values());
-        this.resultsDiv.innerHTML = "";
+        this.cardsListDiv.innerHTML = "";
         cardsValues.forEach((card) => {
-            this.resultsDiv.append(card.render());
+            this.cardsListDiv.append(card.render());
         })
     }
 

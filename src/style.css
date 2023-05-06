@@ -196,8 +196,8 @@ button#button-gps {
 	grid-row: 2;
 }
 
-/* Results */
-#results {
+/* Small Cards List */
+#small-cards-list {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 22rem);
 	grid-auto-rows: auto;
@@ -226,11 +226,11 @@ button#button-gps {
 	transform: scale(1.05);
 }
 
-#results:hover .small-card:not(:hover){
+#small-cards-list:hover .small-card:not(:hover){
 	filter: opacity(0.5);
 }
 
-#results:hover .small-card.active:not(:hover){
+#small-cards-list:hover .small-card.active:not(:hover){
 	filter: opacity(0.9);
 }
 

@@ -58,7 +58,7 @@ function addCard(results: PromiseSettledResult<SmallCard>[]){
     localStorage.setItem("weather-app-cities", locationKeyNames);
 }
 
-document.getElementById("results")!.addEventListener("click", async (ev: any) => {
+document.getElementById("small-cards-list")!.addEventListener("click", async (ev: any) => {
 	const {target} = ev;
 	const smallCard = target.classList.contains("small-card") as HTMLElement ? target : (target as HTMLElement).closest(".small-card");
 	if(!smallCard) return;
@@ -72,7 +72,7 @@ document.getElementById("results")!.addEventListener("click", async (ev: any) =>
 	document.getElementById("app").classList.add("details-open")
 	cardDetailsNextDaysDiv.classList.remove("closed");
 })
-document.getElementById("results")!.addEventListener("dblclick", (e) => {
+document.getElementById("small-cards-list")!.addEventListener("dblclick", (e) => {
 	const { target } = e;
 	if((target as HTMLDivElement).classList.contains("small-card")){
 		const key = (target as HTMLDivElement).getAttribute("data-key")!;
