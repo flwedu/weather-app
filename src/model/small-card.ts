@@ -1,13 +1,9 @@
 import {CurrentForecast} from "./types/IForecast.ts";
 
 export class SmallCard {
-    public location: CurrentForecast["location"];
-    public current: CurrentForecast["current"];
 		public key: string;
 
-    constructor(props: CurrentForecast) {
-        this.location = props.location;
-        this.current = props.current;
+    constructor(private props: CurrentForecast) {
 				this.key = `${props.location.lat},${props.location.lon}`;
 		}
 
@@ -26,19 +22,21 @@ export class SmallCard {
 		}
 
 		private getDate(){
-			const lastUpdatedEpoch = this.current.last_updated_epoch * 1000;
+			const {last_updated_epoch} = this.props.current;
+			const lastUpdatedEpoch = last_updated_epoch * 1000;
 			return new Date(lastUpdatedEpoch).toLocaleString();
 		}
 
     render(){
-        const html = `
+			const {current,location} = this.props;
+			const html = `
 			<div class="small-card-header">
-					<img class="header-icon" src="${this.current.condition.icon}" alt="${this.current.condition.text}">
-					<span class="header-temp">${this.getTemperatureIcon(this.current.temp_c)} ${this.current.temp_c} ºC</span>
-					<span class="header-text">${this.current.condition.text}</span>
+					<img class="header-icon" src="${current.condition.icon}" alt="${current.condition.text}">
+					<span class="header-temp">${this.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
+					<span class="header-text">${current.condition.text}</span>
 			</div>
 			<div class="small-card-body" >
-					<span class="body-name"><i class="fa-solid fa-location-dot"></i> ${this.location.name}, ${this.location.country}</span>
+					<span class="body-name"><i class="fa-solid fa-location-dot"></i> ${location.name}, ${location.country}</span>
 					<span class="body-time"><i class="fa-solid fa-calendar-days"></i> ${this.getDate()}</span>
 			</div>
 			`;
