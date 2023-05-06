@@ -1,11 +1,9 @@
 import {SmallCard} from "./small-card.ts";
 
 export class UiController {
-    private cards: Map<string, SmallCard>;
     private cardsListDiv: HTMLDivElement;
     
-    constructor() {
-        this.cards = new Map();
+    constructor(private cards: Map<string, SmallCard>) {
         this.cardsListDiv = document.getElementById("small-cards-list") as HTMLDivElement;
     }
 

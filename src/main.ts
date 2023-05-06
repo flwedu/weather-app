@@ -2,12 +2,12 @@ import './style.css'
 import {SmallCard} from "./model/small-card.ts";
 import {DataRequest} from "./model/data-request.ts";
 import {UiController} from "./model/ui-controller.ts";
-import {CardDetailsNextDays} from "./model/card-details-next-days.ts";
 
 const searchForm = document.forms.namedItem("search-form")!;
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const buttonGps = document.getElementById("button-gps")!;
-const uiController = new UiController();
+const cards: Map<string, SmallCard> = new Map();
+const uiController = new UiController(cards);
 
 document.getElementById("toggle-dark-mode")!.addEventListener("click", (e) => {
     const button = e.target as HTMLButtonElement;
