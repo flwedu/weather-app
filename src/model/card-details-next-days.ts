@@ -1,7 +1,7 @@
 import {Day, ForecastDay, NextDaysForecast} from "./types/IForecast.ts";
 import {CityCard} from "./city-card.ts";
 
-export class CityCardDetails{
+export class CardDetailsNextDays {
 
 	private cityCard: CityCard;
 
@@ -42,6 +42,12 @@ export class CityCardDetails{
 		return `
 		<h2>${this.data.location.name}, ${this.data.location.country}</h2>
 		<table>
+			<thead>
+				<th>Condition</th>
+				<th>Max/Min</th>
+				<th>Precipitation</th>
+				<th>Week Day</th>
+			</thead>
 			<tbody>
 				${this.data.forecast.forecastday.map((fDay) => this.createDayCard(fDay)).join("")}
 			</tbody>

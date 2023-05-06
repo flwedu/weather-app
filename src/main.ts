@@ -2,7 +2,7 @@ import './style.css'
 import {CityCard} from "./model/city-card.ts";
 import {DataRequest} from "./model/data-request.ts";
 import {UiController} from "./model/ui-controller.ts";
-import {CityCardDetails} from "./model/city-card-details.ts";
+import {CardDetailsNextDays} from "./model/card-details-next-days.ts";
 
 const searchForm = document.forms.namedItem("search-form")!;
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
@@ -65,12 +65,12 @@ document.getElementById("results")!.addEventListener("click", async (ev: any) =>
 	document.querySelectorAll(".city-card").forEach((c) => c.classList.remove("active"));
 	card.classList.add("active");
 	const query = card.getAttribute("data-key");
-	const detailsDiv = document.getElementById("details");
+	const cardDetailsNextDaysDiv = document.getElementById("details-next-days");
 
 	const data = await new DataRequest().getForecast(query);
-	detailsDiv.innerHTML = new CityCardDetails(data).render();
+	cardDetailsNextDaysDiv.innerHTML = new CardDetailsNextDays(data).render();
 	document.getElementById("app").classList.add("details-open")
-	detailsDiv.classList.remove("closed");
+	cardDetailsNextDaysDiv.classList.remove("closed");
 })
 document.getElementById("results")!.addEventListener("dblclick", (e) => {
 	const { target } = e;

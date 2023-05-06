@@ -267,16 +267,16 @@ button#button-gps {
 }
 
 /* Details */
-#details {
+#details-next-days {
 	padding-inline: 2rem;
 	max-height: 30rem;
 }
 
-#details.closed {
+#details-next-days.closed {
 	display: none;
 }
 
-#details table {
+#details-next-days table {
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -284,16 +284,16 @@ button#button-gps {
 	text-align: center;
 }
 
-#details .card-day:nth-child(even){
+#details-next-days .card-day:nth-child(even){
 	background: hsla(0, 0%, 100%, 0.1);
 }
 
-#details .card-day .maxtemp {
+#details-next-days .card-day .maxtemp {
 	font-weight: 600;
 	font-size: 1.3rem
 }
 
-#details .card-day button {
+#details-next-days .card-day button {
 	border-radius: 50%;
 	height: 2rem;
 	width: 2rem;
