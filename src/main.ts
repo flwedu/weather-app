@@ -60,17 +60,13 @@ function addCard(results: PromiseSettledResult<SmallCard>[]){
 
 document.getElementById("small-cards-list")!.addEventListener("click", async (ev: any) => {
 	const {target} = ev;
-	const smallCard = target.classList.contains("small-card") as HTMLElement ? target : (target as HTMLElement).closest(".small-card");
-	if(!smallCard) return;
-	document.querySelectorAll(".small-card").forEach((c) => c.classList.remove("active"));
-	smallCard.classList.add("active");
-	const query = smallCard.getAttribute("data-key");
-	const cardDetailsNextDaysDiv = document.getElementById("details-next-days");
+	const activatedCardElement = target.classList.contains("small-card") as HTMLElement ? target : (target as HTMLElement).closest(".small-card");
+	if(!activatedCardElement) return;
+	const key = activatedCardElement.getAttribute("data-key");
 
-	const data = await new DataRequest().getForecast(query);
-	cardDetailsNextDaysDiv.innerHTML = new CardDetailsNextDays(data).render();
-	document.getElementById("app").classList.add("details-open")
-	cardDetailsNextDaysDiv.classList.remove("closed");
+	const nextDaysForecast = await new DataRequest().getForecast(key);
+	uiController.expandCardDetails(key, activatedCardElement);
+	uiController.openCardNextDaysDetails(nextDaysForecast);
 })
 document.getElementById("small-cards-list")!.addEventListener("dblclick", (e) => {
 	const { target } = e;
