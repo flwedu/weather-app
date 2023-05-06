@@ -47,4 +47,21 @@ export class SmallCard {
         div.innerHTML = html;
         return div;
     }
+
+		renderDetails(){
+			const {current,location} = this.props;
+			return `
+				<div class="details-card-header">
+					<img class="header-icon" src="${current.condition.icon}" alt="${current.condition.text}">
+					<h2>${location.name}, ${location.country}</h2>
+				</div>
+				<div class="details-card-body">
+					<span><i class="fa-solid fa-wind"></i> ${current.wind_kph}</span>
+					<span><i class="fa-solid fa-compass"></i> ${current.wind_dir}</span>
+					<span>${this.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
+					<span>${this.getTemperatureIcon(current.feelslike_c)} ${current.feelslike_c} ºC</span>
+					<span><i class="fa-solid fa-droplet"></i> ${current.humidity}%</span>
+				</div>
+			`;
+		}
 }
