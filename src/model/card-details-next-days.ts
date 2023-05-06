@@ -40,7 +40,7 @@ export class CardDetailsNextDays {
 
 	public render(){
 		return `
-		<h2>${this.data.location.name}, ${this.data.location.country}</h2>
+		<h2>Next days forecast</h2>
 		<table>
 			<thead>
 				<th>Condition</th>
