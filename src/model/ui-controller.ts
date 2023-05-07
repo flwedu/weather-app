@@ -1,6 +1,5 @@
 import {SmallCard} from "./small-card.ts";
 import {CardDetailsNextDays} from "./card-details-next-days.ts";
-import {NextDaysForecast} from "./types/IForecast.ts";
 
 export class UiController {
     private cardsListDiv: HTMLDivElement;
@@ -30,28 +29,29 @@ export class UiController {
         return Array.from(this.cards.keys()).join(";");
     }
 
-		public openCardNextDaysDetails(data: NextDaysForecast){
+		private openCardNextDaysDetails(card: SmallCard){
 			const app = document.getElementById("app")!;
 			const cardDetailsNextDaysDiv = document.getElementById("details-next-days")!;
-			cardDetailsNextDaysDiv.innerHTML = new CardDetailsNextDays(data).render();
+			cardDetailsNextDaysDiv.innerHTML = new CardDetailsNextDays(card.getProps()).render();
 			app.classList.add("details-open")
 			cardDetailsNextDaysDiv.classList.remove("closed");
 		}
 
 		public expandCardDetails(key: string, cardElement: HTMLDivElement){
 			// closing all open cards
-			document.querySelectorAll(".small-card.active").forEach((activeCardElement) => {
-				const activeCardKey = activeCardElement.getAttribute("data-key")!;
-				const restoredCard = this.cards.get(activeCardKey);
+			document.querySelectorAll(".small-card.open").forEach((openCardElement) => {
+				const openCardKey = openCardElement.getAttribute("data-key")!;
+				const restoredCard = this.cards.get(openCardKey);
 				if(restoredCard){
-					activeCardElement.replaceWith(restoredCard.render());
+					openCardElement.replaceWith(restoredCard.render());
 				}
 			});
 			// expanding
 			const smallCard = this.cards.get(key);
 			if(smallCard){
-				cardElement.classList.add("active");
+				cardElement.classList.add("open");
 				cardElement.innerHTML = smallCard.renderDetails();
+				this.openCardNextDaysDetails(smallCard);
 			}
 		}
 }

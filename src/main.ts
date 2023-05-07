@@ -15,7 +15,7 @@ document.getElementById("toggle-dark-mode")!.addEventListener("click", (e) => {
     document.body.classList.toggle("dark");
 });
 
-document.getElementById("button-add-location")!.addEventListener("click", (e) => {
+document.getElementById("button-add-location")!.addEventListener("click", () => {
     const searchCard = document.getElementById("search-card")!;
     searchCard.classList.toggle("active");
 })
@@ -41,7 +41,7 @@ if(cities){
 
 function makeRequest(query: string[]){
     const requestPromises = query.map(async (query) => {
-        const data = await new DataRequest().get(query);
+        const data = await new DataRequest().getForecast(query);
         return new SmallCard(data);
     })
     return Promise.allSettled(requestPromises);
@@ -64,9 +64,7 @@ document.getElementById("small-cards-list")!.addEventListener("click", async (ev
 	if(!activatedCardElement) return;
 	const key = activatedCardElement.getAttribute("data-key");
 
-	const nextDaysForecast = await new DataRequest().getForecast(key);
 	uiController.expandCardDetails(key, activatedCardElement);
-	uiController.openCardNextDaysDetails(nextDaysForecast);
 })
 document.getElementById("small-cards-list")!.addEventListener("dblclick", (e) => {
 	const { target } = e;

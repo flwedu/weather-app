@@ -1,9 +1,9 @@
-import {CurrentForecast} from "./types/IForecast.ts";
+import {NextDaysForecast} from "./types/IForecast.ts";
 
 export class SmallCard {
 		public key: string;
 
-    constructor(private props: CurrentForecast) {
+    constructor(private props: NextDaysForecast) {
 				this.key = `${props.location.lat},${props.location.lon}`;
 		}
 
@@ -27,17 +27,21 @@ export class SmallCard {
 			return new Date(lastUpdatedEpoch).toLocaleString();
 		}
 
-    render(){
+		public getProps(){
+			return this.props;
+		}
+
+    public render(){
 			const {current,location} = this.props;
 			const html = `
-			<div class="small-card-header">
+			<div class="small-card-header card-header">
 					<img class="header-icon" src="${current.condition.icon}" alt="${current.condition.text}">
 					<span class="header-temp value">${this.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
 			</div>
-			<div class="small-card-body" >
+			<div class="small-card-body card-body" >
 					<span class="header-text">${current.condition.text}</span>
 			</div>
-			<div class="small-card-footer">
+			<div class="small-card-footer card-footer">
 					<span class="body-name"><i class="fa-solid fa-location-dot"></i> ${location.name}, ${location.country}</span>
 					<span class="body-time"><i class="fa-solid fa-calendar-days"></i> ${this.getDate()}</span>
 			</div>
@@ -50,14 +54,14 @@ export class SmallCard {
         return div;
     }
 
-		renderDetails(){
+		public renderDetails(){
 			const {current,location} = this.props;
 			return `
-				<div class="details-card-header">
+				<div class="details-card-header card-header">
 					<img class="header-icon" src="${current.condition.icon}" alt="${current.condition.text}">
 					<h2>${location.name}, ${location.country}</h2>
 				</div>
-				<div class="details-card-body">
+				<div class="details-card-body card-body">
 					<div class="details-card-div">
 						<h3>Wind speed</h3>
 						<span class="value"><i class="fa-solid fa-wind"></i> ${current.wind_kph}</span>
@@ -67,7 +71,7 @@ export class SmallCard {
 						<span class="value"><i class="fa-solid fa-compass"></i> ${current.wind_dir}</span>
 					</div>
 					<div class="details-card-div">
-						<h3>Temperature</h3>
+						<h3>Max Temperature</h3>
 						<span class="value">${this.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
 					</div>
 					<div class="details-card-div">
@@ -78,6 +82,9 @@ export class SmallCard {
 						<h3>Humidity</h3>
 						<span class="value"><i class="fa-solid fa-droplet"></i> ${current.humidity}%</span>
 					</div>
+				</div>
+				<div class="details-card-footer card-footer">
+					<span class="body-time"><i class="fa-solid fa-calendar-days"></i> ${this.getDate()}</span>
 				</div>
 			`;
 		}
