@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,800;1,100&family=Roboto:wght@100;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,800;1,100&family=Roboto:wght@100;200;300;400;500;600;700&display=swap");
 
 :root {
 	--box-shadow: 3px 3px 16px -8px var(--color-shadow);
@@ -7,6 +7,8 @@
 	--color-border-input: hsla(0, 0%, 0%, 0.7);
 	--color-border: hsla(216, 12%, 84%, 0.3);
 	--color-border-active: hsl(0, 0%, 50%, 0.5);
+	--color-border-inner: hsla(0, 0%, 100%, 0.5);
+	--border-inner: solid 2px var(--color-border-inner);
 	--color-main: hsl(228, 47%, 46%);
 	--color-shadow: hsla(0, 0%, 0%, 0.75);
 	--color-text-muted: hsl(217, 14%, 22%);
@@ -54,12 +56,28 @@ body {
 	background-color: var(--bg-color);
 	background-image: var(--bg-image);
 	color: var(--color-text-muted);
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	height: 100%;
+	font-size: 1rem;
+	font-weight: 400;
 }
 
 button {
 	cursor: pointer;
+}
+
+h1 {
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+h3, th {
+	font-size: 1rem;
+	font-weight: 500;
 }
 
 .shadow {
@@ -86,10 +104,6 @@ nav {
 	align-items: center;
 }
 
-nav h1 {
-	font-weight: 500;
-}
-
 nav button {
 	border: 0;
 	background: 0;
@@ -102,6 +116,12 @@ nav button.active :first-child {
 nav button:not(.active) :last-child {
 	display: none;
 }
+
+.value {
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+}
+
 /* App */
 #app {
 	align-items: start;
@@ -147,7 +167,6 @@ nav button:not(.active) :last-child {
 #search-card.active #search-form {
 	align-content: center;
 	display: grid;
-	font-family: 'Poppins', sans-serif;
 	grid-template: 1fr 2fr / 1fr 1px 1rem;
 	height: 5rem;
 	justify-self: center;
@@ -209,7 +228,6 @@ button#button-gps {
 /* Cards */
 .small-card {
 	position: relative;
-	font-family: "Poppins", sans-serif;
 	width: 100%;
 	display: grid;
 	grid-template-rows: auto;
@@ -237,15 +255,13 @@ button#button-gps {
 
 .small-card-header {
 	display: grid;
-	grid-template-rows: 1fr 1fr;
 	grid-template-columns: 1fr 3fr;
 	align-items: end;
 	justify-items: start;
 }
 
 .small-card-header .header-temp {
-	font-size: 2.5rem;
-	font-family: 'Roboto', sans-serif;
+	font-size: 2rem;
 	justify-self: end;
 }
 
@@ -261,25 +277,48 @@ button#button-gps {
 
 .small-card-body {
 	padding-top: 1rem;
-	display: grid;
-	grid-template-rows: 1fr 1fr;
-	border-top: solid 1px var(--color-text-muted);
-	font-weight: 300;
 }
 
+.small-card-footer {
+	padding-top: 1rem;
+	border-top: var(--border-inner);
+	display: grid;
+	grid-template-rows: auto auto;
+}
+
+/* Details */
 .details-card-header{
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: auto auto;
+	grid-template-rows: 3rem;
+	margin-bottom: 1rem;
+	border-bottom: var(--border-inner);
+}
+
+.details-card-header :last-child{
+	text-align: end;
 }
 
 .details-card-body{
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	font-size: 1.3rem;
+	grid-template-columns: repeat(5, 1fr);
 	justify-items: center;
+	gap: .25rem;
 }
 
-/* Details */
+.details-card-div{
+	padding-block: 1rem;
+	text-align: center;
+	border: var(--border-inner);
+	border-radius: .5rem;
+	width: 100%;
+}
+
+.details-card-div .value {
+	font-size: 1.2rem;
+}
+
+/* Details next days */
 #details-next-days {
 	padding-inline: 2rem;
 	max-height: 30rem;
@@ -289,7 +328,15 @@ button#button-gps {
 	display: none;
 }
 
-#details-next-days table {
+.details-next-days-header {
+	margin-bottom: 1rem;
+	border-bottom: var(--border-inner);
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 3rem;
+}
+
+.details-next-days-body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -297,16 +344,20 @@ button#button-gps {
 	text-align: center;
 }
 
-#details-next-days .card-day:nth-child(even){
+.card-day {
+	text-align: justify-all;
+}
+
+.card-day:nth-child(even){
 	background: hsla(0, 0%, 100%, 0.1);
 }
 
-#details-next-days .card-day .maxtemp {
+.card-day .maxtemp {
 	font-weight: 600;
 	font-size: 1.3rem
 }
 
-#details-next-days .card-day button {
+.card-day button {
 	border-radius: 50%;
 	height: 2rem;
 	width: 2rem;

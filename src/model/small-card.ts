@@ -32,10 +32,12 @@ export class SmallCard {
 			const html = `
 			<div class="small-card-header">
 					<img class="header-icon" src="${current.condition.icon}" alt="${current.condition.text}">
-					<span class="header-temp">${this.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
-					<span class="header-text">${current.condition.text}</span>
+					<span class="header-temp value">${this.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
 			</div>
 			<div class="small-card-body" >
+					<span class="header-text">${current.condition.text}</span>
+			</div>
+			<div class="small-card-footer">
 					<span class="body-name"><i class="fa-solid fa-location-dot"></i> ${location.name}, ${location.country}</span>
 					<span class="body-time"><i class="fa-solid fa-calendar-days"></i> ${this.getDate()}</span>
 			</div>
@@ -56,11 +58,26 @@ export class SmallCard {
 					<h2>${location.name}, ${location.country}</h2>
 				</div>
 				<div class="details-card-body">
-					<span><i class="fa-solid fa-wind"></i> ${current.wind_kph}</span>
-					<span><i class="fa-solid fa-compass"></i> ${current.wind_dir}</span>
-					<span>${this.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
-					<span>${this.getTemperatureIcon(current.feelslike_c)} ${current.feelslike_c} ºC</span>
-					<span><i class="fa-solid fa-droplet"></i> ${current.humidity}%</span>
+					<div class="details-card-div">
+						<h3>Wind speed</h3>
+						<span class="value"><i class="fa-solid fa-wind"></i> ${current.wind_kph}</span>
+					</div>
+					<div class="details-card-div">
+						<h3>Wind direction</h3>
+						<span class="value"><i class="fa-solid fa-compass"></i> ${current.wind_dir}</span>
+					</div>
+					<div class="details-card-div">
+						<h3>Temperature</h3>
+						<span class="value">${this.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
+					</div>
+					<div class="details-card-div">
+						<h3>Feels like</h3>
+						<span class="value">${this.getTemperatureIcon(current.feelslike_c)} ${current.feelslike_c} ºC</span>
+					</div>
+					<div class="details-card-div">
+						<h3>Humidity</h3>
+						<span class="value"><i class="fa-solid fa-droplet"></i> ${current.humidity}%</span>
+					</div>
 				</div>
 			`;
 		}

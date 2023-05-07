@@ -11,11 +11,11 @@ export class CardDetailsNextDays {
 
 	private getTemperature(day: Day){
 		const icon = this.smallCard.getTemperatureIcon(day.maxtemp_c);
-		return `<span class="maxtemp">${icon} ${day.maxtemp_c}ºC</span> / <span class="mintemp">${day.mintemp_c}ºC</span>`;
+		return `<span class="value"><span class="maxtemp">${icon} ${day.maxtemp_c}ºC</span> / ${day.mintemp_c}ºC</span>`;
 	}
 
 	private getPrecipitation(day: Day){
-		return `<span><i class="fa-solid fa-droplet"></i> ${day.totalprecip_mm}mm</span>`;
+		return `<span class="value"><i class="fa-solid fa-umbrella"></i> ${day.totalprecip_mm}mm</span>`;
 	}
 
 	private getWeekDay(date_epoch: ForecastDay["date_epoch"]){
@@ -40,8 +40,10 @@ export class CardDetailsNextDays {
 
 	public render(){
 		return `
-		<h2>Next days forecast</h2>
-		<table>
+		<div class="details-next-days-header">
+			<h2>Next days forecast</h2>
+		</div>
+		<table class="details-next-days-body">
 			<thead>
 				<th>Condition</th>
 				<th>Max/Min</th>
