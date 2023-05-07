@@ -3,10 +3,10 @@ import {SmallCard} from "./small-card.ts";
 
 export class CardDetailsNextDays {
 
-	private smallCard: SmallCard;
+	private props: NextDaysForecast;
 
-	constructor(private data: NextDaysForecast) {
-		this.smallCard = new SmallCard(data);
+	constructor(private smallCard: SmallCard) {
+		this.props = smallCard.getProps();
 	}
 
 	private getTemperature(day: Day){
@@ -51,7 +51,7 @@ export class CardDetailsNextDays {
 				<th>Week Day</th>
 			</thead>
 			<tbody>
-				${this.data.forecast.forecastday.map((fDay) => this.createDayCard(fDay)).join("")}
+				${this.props.forecast.forecastday.map((fDay) => this.createDayCard(fDay)).join("")}
 			</tbody>
 		</table>
 		`;

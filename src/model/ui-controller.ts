@@ -1,5 +1,6 @@
 import {SmallCard} from "./small-card.ts";
 import {CardDetailsNextDays} from "./card-details-next-days.ts";
+import {CardDetails} from "./card-details.ts";
 
 export class UiController {
     private cardsListDiv: HTMLDivElement;
@@ -32,7 +33,7 @@ export class UiController {
 		private openCardNextDaysDetails(card: SmallCard){
 			const app = document.getElementById("app")!;
 			const cardDetailsNextDaysDiv = document.getElementById("details-next-days")!;
-			cardDetailsNextDaysDiv.innerHTML = new CardDetailsNextDays(card.getProps()).render();
+			cardDetailsNextDaysDiv.innerHTML = new CardDetailsNextDays(card).render();
 			app.classList.add("details-open")
 			cardDetailsNextDaysDiv.classList.remove("closed");
 		}
@@ -50,7 +51,8 @@ export class UiController {
 			const smallCard = this.cards.get(key);
 			if(smallCard){
 				cardElement.classList.add("open");
-				cardElement.innerHTML = smallCard.renderDetails();
+				const cardDetails = new CardDetails(smallCard);
+				cardElement.innerHTML = cardDetails.render();
 				this.openCardNextDaysDetails(smallCard);
 			}
 		}
