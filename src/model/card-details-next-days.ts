@@ -40,10 +40,10 @@ export class CardDetailsNextDays {
 
 	public render(){
 		return `
-		<div class="details-next-days-header">
+		<div class="details-next-days-header card-header">
 			<h2>Next days forecast</h2>
 		</div>
-		<table class="details-next-days-body">
+		<table class="details-next-days-body card-body">
 			<thead>
 				<th>Condition</th>
 				<th>Max/Min</th>
