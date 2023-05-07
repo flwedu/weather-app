@@ -5,9 +5,9 @@
 	--color-bg-2: hsl(0, 0%, 100%);
 	--color-bg: hsl(221, 100%, 96%);
 	--color-border-input: hsla(0, 0%, 0%, 0.7);
-	--color-border: hsla(216, 12%, 84%, 0.3);
+	--color-border: hsla(216, 12%, 84%, 0.1);
 	--color-border-active: hsl(0, 0%, 50%, 0.5);
-	--color-border-inner: hsla(0, 0%, 100%, 0.5);
+	--color-border-inner: hsla(0, 0%, 100%, 0.3);
 	--border-inner: solid 2px var(--color-border-inner);
 	--color-main: hsl(228, 47%, 46%);
 	--color-shadow: hsla(0, 0%, 0%, 0.75);
@@ -94,6 +94,10 @@ h3, th {
 	border-radius: 12px;
 	border: 1px solid var(--color-border);
 	color: var(--color-text-muted);
+}
+
+.card.open {
+	height: 30rem;
 }
 
 nav {
@@ -226,22 +230,41 @@ button#button-gps {
 }
 
 /* Cards */
+.card-header {
+	display: grid;
+	margin-bottom: 1rem;
+	border-bottom: var(--border-inner);
+	grid-template-columns: auto auto;
+	grid-auto-rows: auto;
+}
+
+.card-body {
+	display: grid;
+	border-bottom: var(--border-inner);
+}
+
+.card-footer {
+	padding-top: 1rem;
+	display: grid;
+	grid-template-rows: auto auto;
+}
+
 .small-card {
 	position: relative;
 	width: 100%;
 	display: grid;
-	grid-template-rows: auto;
+	grid-template-rows: 4rem auto 3rem;
 	grid-template-columns: auto;
 	cursor: pointer;
 	transition: transform 500ms, filter 500ms;
 }
 
-.small-card.active{
+.small-card.open{
 	grid-column: 1/3;
 	grid-row: 1;
 }
 
-.small-card:not(.active):hover{
+.small-card:not(.open):hover{
 	transform: scale(1.05);
 }
 
@@ -249,7 +272,7 @@ button#button-gps {
 	filter: opacity(0.5);
 }
 
-#small-cards-list:hover .small-card.active:not(:hover){
+#small-cards-list:hover .small-card.open:not(:hover){
 	filter: opacity(0.9);
 }
 
@@ -258,6 +281,10 @@ button#button-gps {
 	grid-template-columns: 1fr 3fr;
 	align-items: end;
 	justify-items: start;
+}
+
+.small-card:not(.open) .small-card-header{
+	border-bottom: 0;
 }
 
 .small-card-header .header-temp {
@@ -275,35 +302,19 @@ button#button-gps {
 	grid-column: 1 / 3;
 }
 
-.small-card-body {
-	padding-top: 1rem;
-}
-
-.small-card-footer {
-	padding-top: 1rem;
-	border-top: var(--border-inner);
-	display: grid;
-	grid-template-rows: auto auto;
-}
-
 /* Details */
-.details-card-header{
-	display: grid;
-	grid-template-columns: auto auto;
-	grid-template-rows: 3rem;
-	margin-bottom: 1rem;
-	border-bottom: var(--border-inner);
-}
-
 .details-card-header :last-child{
 	text-align: end;
 }
 
 .details-card-body{
-	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	justify-items: center;
 	gap: .25rem;
+}
+
+.details-card-footer {
+	grid-template-rows: auto;
 }
 
 .details-card-div{
@@ -312,6 +323,7 @@ button#button-gps {
 	border: var(--border-inner);
 	border-radius: .5rem;
 	width: 100%;
+	height: 40%;
 }
 
 .details-card-div .value {
@@ -321,27 +333,22 @@ button#button-gps {
 /* Details next days */
 #details-next-days {
 	padding-inline: 2rem;
-	max-height: 30rem;
+	display: grid;
+	grid-template-rows: 4rem auto;
 }
 
 #details-next-days.closed {
 	display: none;
 }
 
-.details-next-days-header {
-	margin-bottom: 1rem;
-	border-bottom: var(--border-inner);
-	display: grid;
-	grid-template-columns: auto;
-	grid-template-rows: 3rem;
-}
-
 .details-next-days-body {
+	display: table;
 	width: 100%;
 	margin: 0;
 	padding: 0;
 	border-collapse: collapse;
 	text-align: center;
+	border-bottom: 0;
 }
 
 .card-day {
