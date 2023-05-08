@@ -26,7 +26,7 @@ export class CardDetails {
 						<span class="value"><i class="fa-solid fa-compass"></i> ${current.wind_dir}</span>
 					</div>
 					<div class="details-card-div">
-						<h3>Max Temperature</h3>
+						<h3>Temperature</h3>
 						<span class="value">${this.smallCard.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
 					</div>
 					<div class="details-card-div">

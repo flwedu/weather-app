@@ -36,6 +36,7 @@ export class UiController {
 			cardDetailsNextDaysDiv.innerHTML = new CardDetailsNextDays(card).render();
 			app.classList.add("details-open")
 			cardDetailsNextDaysDiv.classList.remove("closed");
+			cardDetailsNextDaysDiv.classList.add("open");
 		}
 
 		public expandCardDetails(key: string, cardElement: HTMLDivElement){
