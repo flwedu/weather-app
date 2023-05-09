@@ -1,4 +1,6 @@
 import './style.css'
+import './styles/components.css'
+import './styles/cards.css'
 import {SmallCard} from "./model/small-card.ts";
 import {DataRequest} from "./model/data-request.ts";
 import {UiController} from "./model/ui-controller.ts";
