@@ -9,6 +9,18 @@ export class UiController {
         this.cardsListDiv = document.getElementById("small-cards-list") as HTMLDivElement;
     }
 
+		public updateTexts(langs: any, selectedLang: string){
+			const availableLanguages = ['pt', 'en', 'es'];
+			const langIndex = availableLanguages.indexOf(selectedLang);
+			document.querySelectorAll("[data-lang]").forEach((el) => {
+				const fieldName = el.getAttribute("data-lang")!;
+				const text = langs[fieldName][langIndex] ?? "";
+				if(text){
+					el.textContent = text;
+				}
+			})
+		}
+
     public addCard(card: SmallCard){
 				const {key} = card;
         this.cards.set(key, card);

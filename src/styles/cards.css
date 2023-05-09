@@ -1,0 +1,152 @@
+/* Small Cards List */
+#small-cards-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 22rem);
+	grid-auto-rows: auto;
+	margin: 0 auto;
+	gap: 1rem;
+	width: 100%;
+}
+
+/* Cards */
+.card-header {
+	display: grid;
+	margin-bottom: 1rem;
+	border-bottom: var(--border-inner);
+	grid-template-columns: auto auto;
+	grid-auto-rows: auto;
+}
+
+.card-body {
+	display: grid;
+	border-bottom: var(--border-inner);
+}
+
+.card-footer {
+	padding-top: 1rem;
+	display: grid;
+	grid-template-rows: auto auto;
+}
+
+.small-card {
+	position: relative;
+	width: 100%;
+	display: grid;
+	grid-template-rows: 4rem auto 3rem;
+	grid-template-columns: auto;
+	cursor: pointer;
+	transition: transform 500ms, filter 500ms;
+}
+
+.small-card.open{
+	grid-column: 1/3;
+	grid-row: 1;
+}
+
+.small-card:not(.open):hover{
+	transform: scale(1.05);
+}
+
+#small-cards-list:hover .small-card:not(:hover){
+	filter: opacity(0.5);
+}
+
+#small-cards-list:hover .small-card.open:not(:hover){
+	filter: opacity(0.9);
+}
+
+.small-card-header {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	align-items: end;
+	justify-items: start;
+}
+
+.small-card:not(.open) .small-card-header{
+	border-bottom: 0;
+}
+
+.small-card-header .header-temp {
+	font-size: 2rem;
+	justify-self: end;
+}
+
+.small-card-header .header-button {
+	font-size: 2rem;
+	justify-self: end;
+	align-self: start;
+}
+
+.small-card-header .header-text {
+	grid-column: 1 / 3;
+}
+
+/* Details */
+.details-card-header :last-child{
+	text-align: end;
+}
+
+.details-card-body{
+	grid-template-columns: repeat(5, 1fr);
+	justify-items: center;
+	gap: .25rem;
+}
+
+.details-card-footer {
+	grid-template-rows: auto;
+}
+
+.details-card-div{
+	padding-block: 1rem;
+	text-align: center;
+	border: var(--border-inner);
+	border-radius: .5rem;
+	width: 100%;
+	height: 40%;
+}
+
+.details-card-div .value {
+	font-size: 1.2rem;
+}
+
+/* Details next days */
+#details-next-days {
+	padding-inline: 2rem;
+	display: grid;
+	grid-template-rows: 4rem auto;
+}
+
+#details-next-days.closed {
+	display: none;
+}
+
+.details-next-days-body {
+	display: table;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	text-align: center;
+	border-bottom: 0;
+}
+
+.card-day {
+	text-align: justify-all;
+}
+
+.card-day:nth-child(even){
+	background: hsla(0, 0%, 100%, 0.1);
+}
+
+.card-day .maxtemp {
+	font-weight: 600;
+	font-size: 1.3rem
+}
+
+.card-day button {
+	border-radius: 50%;
+	height: 2rem;
+	width: 2rem;
+	border: 0;
+	background: hsla(0, 0%, 100%, 0.3);;
+}

@@ -8,16 +8,23 @@
   <body>
   <nav id="navbar" class="navbar shadow">
     <h1>Weather Forecast App</h1>
-    <button id="toggle-dark-mode">
-      <i class="fa-solid fa-sun"></i>
-      <i class="fa-solid fa-moon"></i>
-    </button>
+		<div class="buttons">
+			<label for="select-language" data-lang="language">Idioma:</label><select id="select-language">
+				<option value="pt">Português</option>
+				<option value="en">Inglês</option>
+				<option value="es">Espanhol</option>
+			</select>
+			<button id="toggle-dark-mode">
+				<i class="fa-solid fa-sun"></i>
+				<i class="fa-solid fa-moon"></i>
+			</button>
+		</div>
   </nav>
   <main id="app">
     <div id="search-card" class="card shadow">
-      <button id="button-add-location"><i class="fa-solid fa-plus"></i> Add Location</button>
+      <button id="button-add-location"><i class="fa-solid fa-plus"></i><span data-lang="add-location">Add Location<span></span></button>
       <form name="form" id="search-form">
-        <label for="search-input">Search for city name</label>
+        <label for="search-input" data-lang="search-for-city">Search for city name</label>
         <input id="search-input" name="search-input" type="text">
         <button id="button-submit" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         <button id="button-gps" type="button"><i class="fa-solid fa-location-crosshairs"></i></button>
