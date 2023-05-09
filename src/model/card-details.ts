@@ -18,23 +18,23 @@ export class CardDetails {
 				</div>
 				<div class="details-card-body card-body">
 					<div class="details-card-div">
-						<h3>Wind speed</h3>
+						<h3 data-lang="wind-speed">Wind speed</h3>
 						<span class="value"><i class="fa-solid fa-wind"></i> ${current.wind_kph}</span>
 					</div>
 					<div class="details-card-div">
-						<h3>Wind direction</h3>
+						<h3 data-lang="wind-direction">Wind direction</h3>
 						<span class="value"><i class="fa-solid fa-compass"></i> ${current.wind_dir}</span>
 					</div>
 					<div class="details-card-div">
-						<h3>Temperature</h3>
+						<h3 data-lang="temperature">Temperature</h3>
 						<span class="value">${this.smallCard.getTemperatureIcon(current.temp_c)} ${current.temp_c} ºC</span>
 					</div>
 					<div class="details-card-div">
-						<h3>Feels like</h3>
+						<h3 data-lang="feels-like">Feels like</h3>
 						<span class="value">${this.smallCard.getTemperatureIcon(current.feelslike_c)} ${current.feelslike_c} ºC</span>
 					</div>
 					<div class="details-card-div">
-						<h3>Humidity</h3>
+						<h3 data-lang="humidity">Humidity</h3>
 						<span class="value"><i class="fa-solid fa-droplet"></i> ${current.humidity}%</span>
 					</div>
 				</div>

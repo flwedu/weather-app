@@ -41,14 +41,14 @@ export class CardDetailsNextDays {
 	public render(){
 		return `
 		<div class="details-next-days-header card-header">
-			<h2>Next days forecast</h2>
+			<h2 data-lang="next-days-forecast">Next days forecast</h2>
 		</div>
 		<table class="details-next-days-body card-body">
 			<thead>
-				<th>Condition</th>
+				<th data-lang="condition">Condition</th>
 				<th>Max/Min</th>
-				<th>Precipitation</th>
-				<th>Week Day</th>
+				<th data-lang="precipitation">Precipitation</th>
+				<th data-lang="week-day">Week Day</th>
 			</thead>
 			<tbody>
 				${this.props.forecast.forecastday.map((fDay) => this.createDayCard(fDay)).join("")}
