@@ -8,17 +8,16 @@ import {UiController} from "./model/ui-controller.ts";
 const searchForm = document.forms.namedItem("search-form")!;
 const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const buttonGps = document.getElementById("button-gps")!;
+const langSelectInput = document.getElementById("select-language") as HTMLSelectElement;
 const cards: Map<string, SmallCard> = new Map();
 const uiController = new UiController(cards);
 const languageVariables = (await import("./langs.json")).default;
 
-const availableLanguages = ['pt-br', 'en', 'es'];
-uiController.updateTexts(languageVariables, 0);
 
-document.getElementById("select-language")!.addEventListener("change", (e) => {
-	const selectLanguage = e.target as HTMLSelectElement;
-	const langIndex = availableLanguages.indexOf(selectLanguage.value);
-	uiController.updateTexts(languageVariables, langIndex);
+initApp();
+
+langSelectInput!.addEventListener("change", () => {
+	initApp();
 })
 
 document.getElementById("toggle-dark-mode")!.addEventListener("click", (e) => {
@@ -45,15 +44,20 @@ searchForm.addEventListener("submit", (event) => {
     searchInput.value = "";
 })
 
-const cities = localStorage.getItem("weather-app-cities");
-if(cities){
-    const queries = cities.split(";");
-    makeRequest(queries).then(addCard);
+function initApp(){
+	const selectedLang = langSelectInput.value;
+	uiController.updateTexts(languageVariables, selectedLang);
+	const cities = localStorage.getItem("weather-app-cities");
+	if(cities){
+		const queries = cities.split(";");
+		makeRequest(queries).then(addCard);
+	}
 }
 
 function makeRequest(query: string[]){
     const requestPromises = query.map(async (query) => {
-        const data = await new DataRequest().getForecast(query);
+				const selectedLang = langSelectInput.value;
+        const data = await new DataRequest(selectedLang).getForecast(query);
         return new SmallCard(data);
     })
     return Promise.allSettled(requestPromises);
