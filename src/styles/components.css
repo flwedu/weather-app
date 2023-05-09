@@ -19,6 +19,25 @@ nav button:not(.active) :last-child {
 	display: none;
 }
 
+nav .buttons {
+	color: var(--color-text-title);
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+#select-language {
+	background: 0;
+	border: 0;
+	font: inherit;
+}
+
+#select-language option {
+	background: 0;
+	appearance: none;
+	font: inherit;
+}
+
 #search-card {
 	grid-row: 1;
 	grid-column: 1 / 3;
