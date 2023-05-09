@@ -10,6 +10,16 @@ const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const buttonGps = document.getElementById("button-gps")!;
 const cards: Map<string, SmallCard> = new Map();
 const uiController = new UiController(cards);
+const languageVariables = (await import("./langs.json")).default;
+
+const availableLanguages = ['pt-br', 'en', 'es'];
+uiController.updateTexts(languageVariables, 0);
+
+document.getElementById("select-language")!.addEventListener("change", (e) => {
+	const selectLanguage = e.target as HTMLSelectElement;
+	const langIndex = availableLanguages.indexOf(selectLanguage.value);
+	uiController.updateTexts(languageVariables, langIndex);
+})
 
 document.getElementById("toggle-dark-mode")!.addEventListener("click", (e) => {
     const button = e.target as HTMLButtonElement;
