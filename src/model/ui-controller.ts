@@ -5,16 +5,23 @@ import {CardDetails} from "./card-details.ts";
 export class UiController {
     private cardsListDiv: HTMLDivElement;
     
-    constructor(private cards: Map<string, SmallCard>) {
+    constructor(private cards: Map<string, SmallCard>,
+								private langs: any,
+								private defaultUsedLang: string) {
         this.cardsListDiv = document.getElementById("small-cards-list") as HTMLDivElement;
     }
 
-		public updateTexts(langs: any, selectedLang: string){
+		public setDefaultUsedLang(lang: string){
+			this.defaultUsedLang = lang;
+		}
+
+		public updateTexts(parentHtmlElement: HTMLElement,
+											 usedLang = this.defaultUsedLang){
 			const availableLanguages = ['pt', 'en', 'es'];
-			const langIndex = availableLanguages.indexOf(selectedLang);
-			document.querySelectorAll("[data-lang]").forEach((el) => {
+			const langIndex = availableLanguages.indexOf(usedLang);
+			parentHtmlElement.querySelectorAll("[data-lang]").forEach((el) => {
 				const fieldName = el.getAttribute("data-lang")!;
-				const text = langs[fieldName][langIndex] ?? "";
+				const text = this.langs[fieldName][langIndex] ?? "";
 				if(text){
 					el.textContent = text;
 				}
@@ -32,9 +39,16 @@ export class UiController {
 
     public updateRendering(){
         const cardsValues = Array.from(this.cards.values());
-        this.cardsListDiv.innerHTML = "";
+				const activeCardKey = document.querySelector(".small-card.open")?.getAttribute("data-key");
+        this.cardsListDiv.querySelectorAll(".small-card:not(.open)")
+					.forEach((card) =>{
+						card.remove();
+					});
         cardsValues.forEach((card) => {
-            this.cardsListDiv.append(card.render());
+						if(card.key === activeCardKey) return;
+						const cardDiv = card.render();
+						this.updateTexts(cardDiv)
+            this.cardsListDiv.append(cardDiv);
         })
     }
 
@@ -57,15 +71,18 @@ export class UiController {
 				const openCardKey = openCardElement.getAttribute("data-key")!;
 				const restoredCard = this.cards.get(openCardKey);
 				if(restoredCard){
-					openCardElement.replaceWith(restoredCard.render());
+					const cardDiv = restoredCard.render();
+					this.updateTexts(cardDiv);
+					openCardElement.replaceWith(cardDiv);
 				}
 			});
 			// expanding
 			const smallCard = this.cards.get(key);
 			if(smallCard){
-				cardElement.classList.add("open");
 				const cardDetails = new CardDetails(smallCard);
+				cardElement.classList.add("open");
 				cardElement.innerHTML = cardDetails.render();
+				this.updateTexts(cardElement);
 				this.openCardNextDaysDetails(smallCard);
 			}
 		}

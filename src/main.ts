@@ -10,8 +10,8 @@ const searchInput = document.getElementById("search-input") as HTMLInputElement;
 const buttonGps = document.getElementById("button-gps")!;
 const langSelectInput = document.getElementById("select-language") as HTMLSelectElement;
 const cards: Map<string, SmallCard> = new Map();
-const uiController = new UiController(cards);
-const languageVariables = (await import("./langs.json")).default;
+const langs = (await import("./langs.json")).default;
+const uiController = new UiController(cards, langs, 'pt');
 
 
 initApp();
@@ -46,7 +46,7 @@ searchForm.addEventListener("submit", (event) => {
 
 function initApp(){
 	const selectedLang = langSelectInput.value;
-	uiController.updateTexts(languageVariables, selectedLang);
+	uiController.updateTexts(document.body, selectedLang);
 	const cities = localStorage.getItem("weather-app-cities");
 	if(cities){
 		const queries = cities.split(";");
