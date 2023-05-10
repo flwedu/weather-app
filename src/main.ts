@@ -76,11 +76,11 @@ function addCard(results: PromiseSettledResult<SmallCard>[]){
 
 document.getElementById("small-cards-list")!.addEventListener("click", async (ev: any) => {
 	const {target} = ev;
-	const activatedCardElement = target.classList.contains("small-card") as HTMLElement ? target : (target as HTMLElement).closest(".small-card");
-	if(!activatedCardElement) return;
-	const key = activatedCardElement.getAttribute("data-key");
+	const clickedCard: HTMLDivElement = target.classList.contains("small-card") ? target : target.closest(".small-card");
+	if(!clickedCard || clickedCard.classList.contains("open")) return;
+	const key = clickedCard.getAttribute("data-key") || "";
 
-	uiController.expandCardDetails(key, activatedCardElement);
+	uiController.expandCardDetails(key, clickedCard);
 })
 document.getElementById("small-cards-list")!.addEventListener("dblclick", (e) => {
 	const { target } = e;

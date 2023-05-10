@@ -21,7 +21,7 @@ export class UiController {
 			const langIndex = availableLanguages.indexOf(usedLang);
 			parentHtmlElement.querySelectorAll("[data-lang]").forEach((el) => {
 				const fieldName = el.getAttribute("data-lang")!;
-				const text = this.langs[fieldName][langIndex] ?? "";
+				const text = this.langs[fieldName]?.[langIndex] ?? "";
 				if(text){
 					el.textContent = text;
 				}
