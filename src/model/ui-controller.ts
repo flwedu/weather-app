@@ -63,6 +63,7 @@ export class UiController {
 			app.classList.add("details-open")
 			cardDetailsNextDaysDiv.classList.remove("closed");
 			cardDetailsNextDaysDiv.classList.add("open");
+			this.updateTexts(cardDetailsNextDaysDiv);
 		}
 
 		public expandCardDetails(key: string, cardElement: HTMLDivElement){

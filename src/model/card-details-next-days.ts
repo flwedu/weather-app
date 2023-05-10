@@ -21,8 +21,8 @@ export class CardDetailsNextDays {
 	private getWeekDay(date_epoch: ForecastDay["date_epoch"]){
 		const date = new Date(date_epoch*1000);
 		const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-		const weekDay = days[date.getUTCDay()];
-		return `<span><i class="fa-solid fa-calendar-week"></i> ${weekDay}</span>`;
+		const weekDay = days[date.getUTCDay()].toLowerCase();
+		return `<i class="fa-solid fa-calendar-week"></i> <span data-lang="${weekDay}"></span>`;
 	}
 
 	private createDayCard(forecastDay: ForecastDay){

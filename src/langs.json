@@ -58,5 +58,40 @@
 		"Idioma:",
 		"Language:",
 		"Idioma:"
+	],
+	"sunday": [
+		"Domingo",
+		"Sunday",
+		"Domingo"
+	],
+	"monday": [
+		"Segunda-feira",
+		"Monday",
+		"Lunes"
+	],
+	"tuesday": [
+		"Terça-feira",
+		"Tuesday",
+		"Martes"
+	],
+	"wednesday": [
+		"Quarta-feira",
+		"Wednesday",
+		"Miércoles"
+	],
+	"thursday": [
+		"Quinta-feira",
+		"Thursday",
+		"Jueves"
+	],
+	"friday": [
+		"Sexta-feira",
+		"Friday",
+		"Viernes"
+	],
+	"saturday": [
+		"Sábado",
+		"Saturday",
+		"Sábado"
 	]
 }
