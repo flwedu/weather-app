@@ -1,97 +1,29 @@
 {
-	"add-location": [
-		"Adicionar Localização",
-		"Add location",
-		"Agregar direccion"
-	],
-	"condition": [
-		"Condição",
-		"Condition",
-		"Condición"
-	],
-	"feels-like": [
-		"Sensação térmica",
-		"Feels like",
-		"Sensación térmica"
-	],
-	"humidity": [
-		"Umidade",
-		"Humidity",
-		"Humedad"
-	],
+	"add-location": ["Adicionar Localização", "Add location", "Agregar direccion"],
+	"condition": ["Condição", "Condition", "Condición"],
+	"feels-like": ["Sensação térmica", "Feels like", "Sensación térmica"],
+	"humidity": ["Umidade", "Humidity", "Humedad"],
 	"next-days-forecast": [
 		"Previsão para os próximos dias",
 		"Next days forecast",
 		"Pronóstico para los próximos días"
 	],
-	"precipitation": [
-		"Precipitação",
-		"Precipitation",
-		"Precipitación"
-	],
+	"precipitation": ["Precipitação", "Precipitation", "Precipitación"],
 	"search-for-city": [
 		"Buscar por cidade ou coordenadas",
 		"Search for city or coordinates",
 		"Buscar por ciudad o coordenadas"
 	],
-	"temperature": [
-		"Temperatura",
-		"Temperature",
-		"Temperatura"
-	],
-	"week-day": [
-		"Dia da semana",
-		"Week day",
-		"Día de la semana"
-	],
-	"wind-direction": [
-		"Direção do vento",
-		"Wind direction",
-		"Dirección del viento"
-	],
-	"wind-speed": [
-		"Velocidade do vento",
-		"Wind speed",
-		"Velocidad del viento"
-	],
-	"language": [
-		"Idioma:",
-		"Language:",
-		"Idioma:"
-	],
-	"sunday": [
-		"Domingo",
-		"Sunday",
-		"Domingo"
-	],
-	"monday": [
-		"Segunda-feira",
-		"Monday",
-		"Lunes"
-	],
-	"tuesday": [
-		"Terça-feira",
-		"Tuesday",
-		"Martes"
-	],
-	"wednesday": [
-		"Quarta-feira",
-		"Wednesday",
-		"Miércoles"
-	],
-	"thursday": [
-		"Quinta-feira",
-		"Thursday",
-		"Jueves"
-	],
-	"friday": [
-		"Sexta-feira",
-		"Friday",
-		"Viernes"
-	],
-	"saturday": [
-		"Sábado",
-		"Saturday",
-		"Sábado"
-	]
+	"temperature": ["Temperatura", "Temperature", "Temperatura"],
+	"week-day": ["Dia da semana", "Week day", "Día de la semana"],
+	"wind-direction": ["Direção do vento", "Wind direction", "Dirección del viento"],
+	"wind-speed": ["Velocidade do vento", "Wind speed", "Velocidad del viento"],
+	"language": ["Idioma:", "Language:", "Idioma:"],
+	"sunday": ["Domingo", "Sunday", "Domingo"],
+	"monday": ["Segunda-feira", "Monday", "Lunes"],
+	"tuesday": ["Terça-feira", "Tuesday", "Martes"],
+	"wednesday": ["Quarta-feira", "Wednesday", "Miércoles"],
+	"thursday": ["Quinta-feira", "Thursday", "Jueves"],
+	"friday": ["Sexta-feira", "Friday", "Viernes"],
+	"saturday": ["Sábado", "Saturday", "Sábado"]
 }

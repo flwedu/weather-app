@@ -1,16 +1,15 @@
-import {NextDaysForecast} from "./types/IForecast.ts";
-import {SmallCard} from "./small-card.ts";
+import { NextDaysForecast } from "./types/IForecast.ts";
+import { SmallCard } from "./small-card.ts";
 
 export class CardDetails {
-
 	private readonly props: NextDaysForecast;
 
 	constructor(private smallCard: SmallCard) {
 		this.props = smallCard.getProps();
 	}
 
-	public render(){
-		const {current,location} = this.props;
+	public render() {
+		const { current, location } = this.props;
 		return `
 				<div class="details-card-header card-header">
 					<img class="header-icon" src="${current.condition.icon}" alt="${current.condition.text}">
@@ -43,5 +42,4 @@ export class CardDetails {
 				</div>
 			`;
 	}
-
 }

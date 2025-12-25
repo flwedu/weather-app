@@ -21,7 +21,7 @@ nav button:not(.active) :last-child {
 
 nav .buttons {
 	color: var(--color-text-title);
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-size: 1rem;
 	font-weight: 400;
 }

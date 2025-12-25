@@ -1,4 +1,5 @@
 # weather-app
+
 A web weather forecast application (🚧work in progress)
 
 ## Running the app
