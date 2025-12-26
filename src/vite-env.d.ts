@@ -1,6 +1,4 @@
-interface ViteTypeOptions {
-	strictImportMetaEnv: unknown;
-}
+/// <reference types="vite/client" />
 
 interface ImportMetaEnv {
 	readonly VITE_WEATHER_BASE_URL: string;
