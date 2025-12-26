@@ -2,7 +2,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 import { CardsList } from "./components/cards-list";
 import { NavBar } from "./components/navbar";
-import { NextDaysDetails } from "./components/next-days-details";
 import { SearchForm } from "./components/search-form";
 
 const queryClient = new QueryClient();
@@ -30,7 +29,6 @@ export function App() {
 			/>
 			<SearchForm onSubmit={handleSearchSubmit} />
 			<CardsList onCardClick={handleCardClick} />
-			<NextDaysDetails selectedCity={selectedCity} />
 		</QueryClientProvider>
 	);
 }
